@@ -78,5 +78,6 @@ function  download_txt() {
   document.body.removeChild(a);
 }
 
-
-document.getElementById('btn_dowload').addEventListener('click', get_all_flashcards);
+$(document).ready(function() {
+    document.getElementById('btn_dowload').addEventListener('click', get_all_flashcards);
+});
