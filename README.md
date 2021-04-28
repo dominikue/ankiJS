@@ -13,7 +13,7 @@ https://cdn.jsdelivr.net/gh/dominikue/ankiJS@main/ankiJS.js
 <button id="btn_dowload">Download flashcards as csv</button>
 ```
 
-2. Include jquery and ankJS to html file.
+2. Include jquery and ankiJS to html file.
 
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
