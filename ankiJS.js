@@ -68,7 +68,7 @@ function  download_txt() {
   );
 
   // Use download attribute to set set desired file name
-  a.setAttribute("download", 'myFile.txt');
+  a.setAttribute("download", $(document).attr('title') + '_anki.txt');
 
   // Trigger the download by simulating click
   a.click();
