@@ -2,11 +2,10 @@
 Simple script for converting html output (from Markdown) to Anki CSV.
 
 
-https://cdn.jsdelivr.net/gh/dominikue/ankiJS@main/ankiJS.js
-or
-https://dominikue.github.io/ankiJS/ankiJS.js
+https://dominikue.github.io/ankiJS/ankiJS.js (or https://cdn.jsdelivr.net/gh/dominikue/ankiJS@main/ankiJS.js)
 
-https://docs.ankiweb.net/#/importing?id=importing
+More information for anki importing: https://docs.ankiweb.net/#/importing?id=importing
+
 
 ## How-to
 
