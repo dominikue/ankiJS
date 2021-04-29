@@ -1,57 +1,58 @@
-var export_txt = "# CSV Anki import";
+var export_txt = "# CSV AnkiJS - Import for deck: ";
 
 function get_all_flashcards() {
-    //var textToSave = document.getElementById('txt').innerHTML;
 
-    console.log('>>');
+    export_txt += $(document).attr('title');
     
     $.each($("blockquote > blockquote > blockquote"), function() {
         
-        // New line
-        export_txt = export_txt + '\n'
-        
-        // Question
-        console.log("-- Question");
-        var i = 0;
+        // Note text var for exporting with new line
+        var note_txt = "\n";
+                
+        // QUESTION
+        var q_i = 0;
         
         $(this).parent().children('p').each(function() {
-            console.log($(this).html());
-            
             // FIELD 1: ID
-            if (i == 0) {
-                export_txt = export_txt + $(this).html() + ';';
+            if (q_i == 0) {
+                note_txt += $(this).html() + ';';
             }
             // FIELD 2: QUESTION
             else {
-                // Check if <br> is needed
-                if (i > 1) {
-                export_txt = export_txt + '<br>';
+                // Check if question has multiple lines (<br>)
+                if (q_i > 1) {
+                    note_txt += '<br>';
                 }
                 
-                export_txt = export_txt + $(this).html();
+                console.log($(this).html());
+                
+                note_txt += $(this).html();
             }
-
-            i = i + 1;
+            q_i = q_i + 1;
         });
         
-        
-        // Answer
-        console.log("-- Answer");
-        var i = 0;
+ 
+        // ANSWER
+        note_txt += ";";
+        var a_i = 0;
         
         $(this).children('p').each(function() {
-            console.log($(this).html());
             
-            // Check if <br> is needed
-            if (i > 0) {
-                export_txt = export_txt + '<br>';
+            // Check if answer has multiple lines (<br>)
+            if (a_i > 0) {
+                note_txt += '<br>';
             }
-            export_txt = export_txt + ';' + $(this).html();
-            i = i + 1;
+            note_txt += $(this).html();
+            
+            a_i = a_i + 1;
         });
+        
+        // REPLACING Chars
+        var note_txt = note_txt.replace(";", ","); // `;` to `,`
+        console.log(note_txt);
+        export_txt += note_txt;
     });
-
-    console.log(export_txt);
+    
     download_txt();
 }
 
