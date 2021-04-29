@@ -48,7 +48,6 @@ function get_all_flashcards() {
         });
         
         // REPLACING Chars
-        var note_txt = note_txt.replace(";", ","); // `;` to `,`
         console.log(note_txt);
         export_txt += note_txt;
     });
