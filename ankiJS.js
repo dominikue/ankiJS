@@ -71,6 +71,7 @@ function get_all_flashcards() {
             
             // QUESTION with CLOZE
             var q_i = 0;
+            var q_cloze_i = 0;
             
             $(this).children().each(function() {
                 // FIELD 1: ID
@@ -101,13 +102,12 @@ function get_all_flashcards() {
                         return '{{c' +  match + '::';
                     });
 
-                    var q_cloze_i = 0;
                     q_txt = q_txt.replace(/<cite>/gi, function() {
                         q_cloze_i++;
                         return '{{c' + q_cloze_i + '::'
                     });
                     
-                    q_txt = q_txt.replace('</cite>', '}}');
+                    q_txt = q_txt.replace(/<\/cite>/gi, '}}');
                     
                     console.log(q_txt);
                     note_txt += q_txt;
